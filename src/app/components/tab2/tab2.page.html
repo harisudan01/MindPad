@@ -1,0 +1,40 @@
+
+<ion-content [fullscreen]="true">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>MindPad</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div *ngIf="!folderHide">
+<ion-list>
+  <ion-item *ngFor="let folder of folders let id='index'" (click)="folderopen(id)">
+    <ion-icon slot="start" class="folder" name="folder"></ion-icon>
+    <ion-label>{{ folder.name }}</ion-label>
+    <ion-badge class="badges">{{ folder.count }}</ion-badge>
+
+    <ion-button *ngIf="id>0" fill="clear" color="danger" slot="end" (click)="deleteFolder(id)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-list>
+  <ion-fab vertical="bottom" size="x-large" horizontal="end" slot="fixed">
+    <ion-fab-button class="add-button" (click)="openAddFolderDialog()">
+      <ion-icon class="add-icon" name="bag-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+<ng-container *ngIf="folderHide">
+<ng-container  *ngTemplateOutlet="explore">
+</ng-container>
+</ng-container>
+</ion-content>
+
+<ng-template #explore>
+  <div *ngIf="!hideFolderHead" style="display: flex; flex-direction:row;gap:20px;align-items: center;">
+    <ion-button  fill="clear" class="icon-back" (click)="onBack()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <h5>{{clickedFolderName}}</h5>
+    </div>
+    <app-explore-container [folderId]="folderId" (headerEvent)="value($event)"></app-explore-container>
+</ng-template>

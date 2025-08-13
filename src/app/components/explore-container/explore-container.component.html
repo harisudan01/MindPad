@@ -1,0 +1,61 @@
+<div *ngIf="!variable">
+  <div *ngIf="notePad.length>0">
+  <div *ngFor="let note of notePad; let id = index">
+    <ion-card color="secondary" [class.removing]="note.removing">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div (click)="openNote(note.id)" style="flex: 1; cursor: pointer;">
+          <h4>{{ note.title }}</h4>
+          <p>{{ note.content | slice:0:40 }}...</p>
+          <p>{{ note.date | date:'short' }}</p>
+        </div>
+        <ion-button fill="clear" class="delete-icon" color="danger" (click)="deleteNote(id, $event)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card>
+  </div>
+  </div>
+  <div *ngIf="notePad.length===0" class="image-class">
+   <img src="../../../assets/icon/nodata.jpg" />
+   <p style="text-align: center;">No Note Here! Add Here </p>
+  </div>
+
+  <ion-fab vertical="bottom" size="x-large" horizontal="end" slot="fixed">
+    <ion-fab-button class="add-button" (click)="variable=true;headerEvent.emit(variable);note1='';title=''">
+      <ion-icon class="add-icon" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+
+<div *ngIf="variable">
+  <div class="button-align">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" class="icon-back"
+        (click)="onBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+    <ion-button [disabled]="!undo" (click)="onUndo()" class="icon-undo">
+      <ion-icon slot="icon-only" name="arrow-undo-outline"></ion-icon>
+    </ion-button>
+    
+    <ion-button [disabled]="onRedoDisable()" (click)="onRedo()" class="icon-redo">
+      <ion-icon slot="icon-only" name="arrow-redo-outline"></ion-icon>
+    </ion-button>
+      <ion-button class="icon-save" [disabled]="(!note1.length&&!title.length)" (click)="onSave()">
+        <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <div style="padding: 20px">
+    <ion-input (keyup)="value($event)" [(ngModel)]="title" placeholder="Title" class="note-title" fill="none">
+    </ion-input>
+    <p class="note-meta">
+      {{ currentDate }} | {{ note1.length || 0 }} characters
+    </p>
+    <ion-textarea (keyup)="content($event)" [(ngModel)]="note1" placeholder="Write your note here..." autoGrow="true"
+      class="note-text">
+    </ion-textarea>
+  </div>

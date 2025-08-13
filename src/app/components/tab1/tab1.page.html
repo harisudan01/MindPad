@@ -1,0 +1,11 @@
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="!headerHide">
+<ion-header>
+<ion-toolbar>
+  <ion-title>MindPad</ion-title>
+</ion-toolbar>
+</ion-header>
+</div>
+  <app-explore-container *ngIf="showExplore" [folderId]="1" [name]="'Tab1page'"(headerEvent)="value($event)"></app-explore-container>
+</ion-content>

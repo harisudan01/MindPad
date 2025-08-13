@@ -1,0 +1,40 @@
+ion-toolbar {
+  --background: burlywood;
+  --color: white;
+  --min-height: 80px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+ion-title {
+  --text-align: left;
+  font-size: xx-large;
+  font-family: cursive;
+}
+.add-button {
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  width: 70px;
+  height: 70px;
+}
+.add-icon {
+  font-size: 30px;
+}
+.add-button {
+  --background: green !important;
+  --background-activated: #023020 !important;
+  --background-focused: #023020 !important;
+  --background-hover: #023020 !important
+}
+.badges{
+    padding: 5px;
+    background: blueviolet;
+}
+.folder{
+  color:burlywood
+}
+.icon-back {
+  font-size: 20px;
+  --color: #555;
+}

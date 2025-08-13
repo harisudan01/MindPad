@@ -1,0 +1,103 @@
+.ion-color-secondary {
+  --ion-color-base: lightgrey !important;
+}
+h4 ,p{
+  color:black;
+  margin-left: 10px;
+  font-family: Segoe UI;
+}
+.add-button{
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  width: 70px;
+  height: 70px;
+}
+.add-icon{
+  font-size:32px;
+}
+.add-button{
+  --background: green!important;
+  --background-activated:#023020!important;
+  --background-focused: #023020!important;
+  --background-hover: #023020!important
+}
+
+.note-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.note-meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 4px 0 16px;
+}
+
+.note-text {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.button-align{
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
+  padding: 40px 10px 10px;
+}
+.icon-button{
+  --color:black;
+}
+.removing {
+  animation: slideOutLeft 0.6s ease forwards;
+}
+
+@keyframes slideOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+.icon-button {
+  --color: #444;
+}
+
+.icon-undo {
+  --color: mediumvioletred;
+  --ionicon-stroke-width: 48px;
+    font-size: 20px;
+}
+
+.icon-redo {
+  --color: #023020;
+  --ionicon-stroke-width: 48px;
+    font-size: 20px;
+}
+
+.icon-save {
+  --color: #023020;
+    font-size: 20px;
+}
+
+.icon-back {
+  font-size: 20px;
+  --color: #555;
+}
+.delete-icon{
+  cursor: pointer;
+}
+.no-note{
+  position: absolute;
+    top: 50%;
+    left: 30%;
+    font-size: x-large;
+}
+.image-class{
+  position:absolute;
+  top: 30%;
+}
