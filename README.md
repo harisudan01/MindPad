@@ -45,3 +45,7 @@ Store actual notes inside folders
 Search & filter folders
 Sync with cloud storage
 Dark mode support
+
+## 📥 Download APK
+
+[➡️ Download Folder Notes v1.0.0](https://github.com/harisudan01/MindPad/releases/download/untagged-770784151e00af58c96c/MindPad.apk)
